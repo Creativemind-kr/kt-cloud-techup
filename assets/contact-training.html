@@ -42,16 +42,112 @@ main{padding:22px 0 90px}.section{padding:58px 0;position:relative}.section+.sec
 @media print{.topbar,.navwrap,.toplinks{display:none!important}.hero{box-shadow:none}.section-head{position:static}.section{break-inside:avoid}.card,.course,.question,.compare-card,.roleplay,.faq details{break-inside:avoid}}
 .script-rule{display:grid;grid-template-columns:auto 1fr;gap:7px 14px;align-items:center;margin-top:10px;padding:16px 18px;border-radius:15px;background:rgba(53,127,168,.07);border:1px solid rgba(53,127,168,.14)}.script-rule strong{font-size:12px;color:#2b607e}.script-rule span{font-size:12px;font-weight:900;color:#30363e}.script-rule p{grid-column:1/-1;margin:0;color:#5d646d;font-size:11px}.closing-title{margin:24px 0 10px}.closing-title span{color:var(--accent);font-size:10px;font-weight:950;letter-spacing:.11em}.closing-title h3{margin:5px 0 0;font-size:18px}.closing-grid{grid-template-columns:repeat(3,1fr)}.close-card{border-top:4px solid var(--accent)}.close-card p{font-size:13px;line-height:1.72}.close-card .use{display:block;margin-top:14px;padding-top:10px;border-top:1px solid #e7e6e3;color:#777e87;font-size:9px;font-weight:850;letter-spacing:.04em}.support-scripts{margin-top:10px}.opening-main{box-shadow:0 20px 48px rgba(23,28,36,.16)}@media(max-width:900px){.closing-grid{grid-template-columns:1fr}.script-rule{grid-template-columns:1fr}.script-rule p{grid-column:auto}}
 
+/* Mobile polish pass for iframe view */
+@media(max-width:720px){
+  :root{--header:96px}
+  html{scroll-padding-top:150px}
+  body{overflow-x:hidden}
+  .shell{width:min(100% - 24px,var(--max))}
+  .topbar{height:var(--header);min-height:var(--header)}
+  .topbar .shell{
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    grid-template-rows:38px 42px;
+    align-items:center;
+    gap:6px;
+  }
+  .brand{
+    min-width:0;
+    gap:10px;
+    font-size:17px;
+    overflow:hidden;
+  }
+  .brand span{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .internal{display:none}
+  .toplinks{
+    width:100%;
+    margin-left:0;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:7px;
+  }
+  .toplinks a{
+    justify-content:center;
+    min-height:38px;
+    padding:0 8px;
+    border-radius:16px;
+    font-size:12px;
+    line-height:1.2;
+    text-align:center;
+    white-space:normal;
+  }
+  .navwrap{top:var(--header);padding:8px 0}
+  .nav{
+    display:grid;
+    grid-auto-flow:column;
+    grid-auto-columns:minmax(108px,30%);
+    gap:5px;
+    padding:5px;
+    overflow-x:auto;
+    scroll-snap-type:x proximity;
+    border-radius:18px;
+  }
+  .nav a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:40px;
+    padding:0 8px;
+    border-radius:13px;
+    font-size:11px;
+    line-height:1.18;
+    text-align:center;
+    white-space:normal;
+    scroll-snap-align:start;
+  }
+  .hero{width:calc(100% - 16px);margin-top:10px;border-radius:24px}
+  .hero-grid{gap:18px;padding:34px 0}
+  .eyebrow{font-size:10.5px;line-height:1.2}
+  .hero h1{font-size:31px;line-height:1.18;letter-spacing:-.04em}
+  .hero-copy{font-size:14px;line-height:1.62}
+  .hero-rule{padding:14px 15px;font-size:12px;line-height:1.58}
+  main{padding-top:18px}
+  .section{padding:42px 0}
+  .section-grid{gap:18px}
+  .section-head h2{font-size:25px;line-height:1.24}
+  .section-head p{font-size:12px;line-height:1.55}
+  .idx{font-size:10px}
+  .lead{padding:22px 20px;border-radius:20px;font-size:16px;line-height:1.7}
+  .analysis-card,.card,.course,.question,.compare-card,.mini-script,.signal-card,.roleplay,.check{padding:18px;border-radius:18px}
+  .objection-lead,.script-box{padding:22px 20px;border-radius:22px}
+  .objection-lead p,.script-box p{font-size:13px;line-height:1.75}
+  .objection-card h3,.course h3,.question h3,.compare-card h3{font-size:15px;line-height:1.35}
+  .objection-card p,.course p,.question p,.mini-script p,.roleplay p{font-size:12px;line-height:1.68}
+  .objection-card .say{font-size:11.5px;line-height:1.62}
+  .flow-step h3{font-size:14px;line-height:1.35}
+  .flow-step p{font-size:12px;line-height:1.58}
+  .match-table{display:block;overflow-x:auto;white-space:normal}
+  .match-table table{width:100%}
+  .match-table th,.match-table td{min-width:118px;line-height:1.5}
+}
+@media(max-width:390px){
+  .brand{font-size:15px}
+  .toplinks a{font-size:11px}
+  .nav{grid-auto-columns:minmax(102px,32%)}
+  .nav a{font-size:10.5px}
+  .hero h1{font-size:28px}
+  .lead{font-size:15px}
+}
 </style>
 </head>
 <body>
 <header class="topbar"><div class="shell"><div class="brand"><i></i><span>kt cloud TECH UP</span></div><span class="internal">컨택교육용 · INTERNAL</span><div class="toplinks"><a href="#" onclick="parent.setUnifiedWorkspace('consulting');return false;">← 상담자료 보기</a><a class="primary" href="javascript:window.print()">인쇄 / PDF</a></div></div></header>
-<section class="hero"><div class="shell hero-grid"><div><span class="eyebrow">CONTACT TRAINING GUIDE · 2026</span><h1>과정을 외우는 교육이 아니라,<br><em>학생에게 맞는 과정을 연결하는 교육</em></h1><p class="hero-copy">상담자료는 학생에게 보여주는 화면이고, 이 가이드는 상담사가 그 화면을 어떤 순서로 보여주고 어떤 질문으로 과정 적합도를 판단할지 익히는 내부 교육용입니다.</p><div class="hero-rule">교육 핵심 원칙 · <strong>설명 30% / 질문과 확인 70%</strong> — 먼저 학생의 목표와 경험을 듣고, 그 답에 맞는 과정의 결과물과 커리큘럼만 골라 설명합니다.</div></div><aside class="hero-side"><div class="metric"><b>TRAINING GOAL 01</b><strong>5개 과정을 한 문장으로 구분</strong><p>디자인 · 화면 개발 · 서버 개발 · 전체 개발 · 서비스 기획의 차이를 빠르게 설명합니다.</p></div><div class="metric"><b>TRAINING GOAL 02</b><strong>질문으로 과정 매칭</strong><p>학생이 원하는 결과물과 취업 직무를 기준으로 추천 근거를 만듭니다.</p></div><div class="metric"><b>TRAINING GOAL 03</b><strong>상담 흐름을 표준화</strong><p>오프닝 → 니즈 파악 → 과정 추천 → 근거 → 우려 해소 → 다음 행동 순서로 진행합니다.</p></div></aside></div></section>
+<section class="hero"><div class="shell hero-grid"><div><span class="eyebrow">CONTACT TRAINING GUIDE · 2026</span><h1>과정을 외우는 교육이 아니라, <br><em>학생에게 맞는 과정을 연결하는 교육</em></h1><p class="hero-copy">상담자료는 학생에게 보여주는 화면이고, 이 가이드는 상담사가 그 화면을 어떤 순서로 보여주고 어떤 질문으로 과정 적합도를 판단할지 익히는 내부 교육용입니다.</p><div class="hero-rule">교육 핵심 원칙 · <strong>설명 30% / 질문과 확인 70%</strong> — 먼저 학생의 목표와 경험을 듣고, 그 답에 맞는 과정의 결과물과 커리큘럼만 골라 설명합니다.</div></div><aside class="hero-side"><div class="metric"><b>TRAINING GOAL 01</b><strong>5개 과정을 한 문장으로 구분</strong><p>디자인 · 화면 개발 · 서버 개발 · 전체 개발 · 서비스 기획의 차이를 빠르게 설명합니다.</p></div><div class="metric"><b>TRAINING GOAL 02</b><strong>질문으로 과정 매칭</strong><p>학생이 원하는 결과물과 취업 직무를 기준으로 추천 근거를 만듭니다.</p></div><div class="metric"><b>TRAINING GOAL 03</b><strong>상담 흐름을 표준화</strong><p>오프닝 → 니즈 파악 → 과정 추천 → 근거 → 우려 해소 → 다음 행동 순서로 진행합니다.</p></div></aside></div></section>
 <nav class="navwrap"><div class="shell nav"><a href="#analysis">01 레퍼런스 분석</a><a href="#courses">02 과정 구분</a><a href="#flow">03 상담 흐름</a><a href="#questions">04 질문법</a><a href="#matching">05 과정 매칭</a><a href="#ai-objection">06 AI 반박</a><a href="#scripts">07 멘트</a><a href="#signals">08 전환 신호</a><a href="#faq">09 FAQ</a><a href="#language">10 표현 가이드</a><a href="#roleplay">11 롤플레이</a><a href="#check">12 체크리스트</a></div></nav>
 <main class="shell">
-<section class="section" id="analysis"><div class="section-grid"><header class="section-head"><span class="idx">01 · 레퍼런스 분석</span><h2>컨택 가이드에서<br>가져올 핵심</h2><p>기존 가이드의 장점은 정보량보다 “상담사가 지금 무엇을 해야 하는지”가 선명하다는 점입니다.</p></header><div><div class="lead">기존 컨택 가이드는 <strong>오프닝·클로징·전환 신호·필수 체크·FAQ·상태 관리</strong>를 한 화면에 모아 실제 연락 업무 중 바로 꺼내 쓰는 플레이북 구조입니다.</div><div class="source-analysis"><article class="analysis-card"><h3>그대로 가져올 구조</h3><p><strong>① 짧은 오프닝 → ② 핵심 질문 → ③ 전환 신호 → ④ FAQ → ⑤ 다음 행동</strong>처럼 상담 행동 순서를 명확히 보여주는 방식은 교육용에도 매우 적합합니다.</p></article><article class="analysis-card"><h3>교육용에서는 바꿀 부분</h3><p>기존 가이드는 한 과정의 컨택 운영 중심입니다. TECH UP 교육용은 <strong>5개 과정의 차이를 판단하고 추천 근거를 말하는 능력</strong>을 중심으로 재구성하는 것이 좋습니다.</p></article></div><div class="note"><strong>운영 정책 주의:</strong> 기존 컨택 가이드의 모집일·수업시간·카드·카메라·상태값 같은 운영 조건은 해당 가이드의 특정 과정 기준입니다. 이 교육자료에서는 구조만 참고하며, 실제 안내 값은 현재 TECH UP 공식 모집공고와 최신 상담자료를 우선합니다.</div></div></div></section>
+<section class="section" id="analysis"><div class="section-grid"><header class="section-head"><span class="idx">01 · 레퍼런스 분석</span><h2>컨택 가이드에서 <br>가져올 핵심</h2><p>기존 가이드의 장점은 정보량보다 “상담사가 지금 무엇을 해야 하는지”가 선명하다는 점입니다.</p></header><div><div class="lead">기존 컨택 가이드는 <strong>오프닝·클로징·전환 신호·필수 체크·FAQ·상태 관리</strong>를 한 화면에 모아 실제 연락 업무 중 바로 꺼내 쓰는 플레이북 구조입니다.</div><div class="source-analysis"><article class="analysis-card"><h3>그대로 가져올 구조</h3><p><strong>① 짧은 오프닝 → ② 핵심 질문 → ③ 전환 신호 → ④ FAQ → ⑤ 다음 행동</strong>처럼 상담 행동 순서를 명확히 보여주는 방식은 교육용에도 매우 적합합니다.</p></article><article class="analysis-card"><h3>교육용에서는 바꿀 부분</h3><p>기존 가이드는 한 과정의 컨택 운영 중심입니다. TECH UP 교육용은 <strong>5개 과정의 차이를 판단하고 추천 근거를 말하는 능력</strong>을 중심으로 재구성하는 것이 좋습니다.</p></article></div><div class="note"><strong>운영 정책 주의:</strong> 기존 컨택 가이드의 모집일·수업시간·카드·카메라·상태값 같은 운영 조건은 해당 가이드의 특정 과정 기준입니다. 이 교육자료에서는 구조만 참고하며, 실제 안내 값은 현재 TECH UP 공식 모집공고와 최신 상담자료를 우선합니다.</div></div></div></section>
 
-<section class="section" id="courses"><div class="section-grid"><header class="section-head"><span class="idx">02 · 과정 구분</span><h2>5개 과정을<br>한 문장으로</h2><p>상담사가 가장 먼저 익혀야 하는 것은 커리큘럼 암기가 아니라 과정 사이의 경계입니다.</p></header><div><div class="course-grid">
+<section class="section" id="courses"><div class="section-grid"><header class="section-head"><span class="idx">02 · 과정 구분</span><h2>5개 과정을 <br>한 문장으로</h2><p>상담사가 가장 먼저 익혀야 하는 것은 커리큘럼 암기가 아니라 과정 사이의 경계입니다.</p></header><div><div class="course-grid">
 <article class="course" style="--course:#b84f76"><span class="num">01 PRODUCT DESIGN</span><h3>프로덕트 디자인</h3><span class="role">프로덕트 디자이너</span><p>사용자의 불편을 찾고 Figma로 화면과 사용 경험을 설계하며, 반응을 보고 더 좋은 화면으로 개선하는 과정.</p><div class="signal">추천 신호 · “화면을 예쁘게가 아니라 사용하기 편하게 설계하고 싶어요.”</div></article>
 <article class="course" style="--course:#357fa8"><span class="num">02 FRONTEND</span><h3>프론트엔드</h3><span class="role">프론트엔드 개발자</span><p>디자인된 화면을 React·Next.js 등으로 실제 사용자가 누르고 움직일 수 있는 웹 서비스로 구현하는 과정.</p><div class="signal">추천 신호 · “제가 만든 화면이 실제 웹에서 작동하는 게 재밌어요.”</div></article>
 <article class="course" style="--course:#b96c43"><span class="num">03 BACKEND</span><h3>백엔드</h3><span class="role">백엔드 개발자</span><p>로그인·데이터 저장·검색처럼 화면 뒤에서 돌아가는 서버 기능을 만들고 안정적으로 운영하는 과정.</p><div class="signal">추천 신호 · “화면보다 서버, 데이터, 로직 쪽이 더 궁금해요.”</div></article>
@@ -59,7 +155,7 @@ main{padding:22px 0 90px}.section{padding:58px 0;position:relative}.section+.sec
 <article class="course" style="--course:#7565a8"><span class="num">05 PRODUCT MANAGEMENT</span><h3>프로덕트 매니지먼트</h3><span class="role">서비스 기획자 PM·PO</span><p>고객 문제를 정의하고 무엇을 먼저 만들지 결정하며 개발자·디자이너와 출시까지 이끄는 과정.</p><div class="signal">추천 신호 · “아이디어를 정리하고 팀을 움직여 실제 서비스로 만들고 싶어요.”</div></article>
 </div></div></div></section>
 
-<section class="section" id="flow"><div class="section-grid"><header class="section-head"><span class="idx">03 · 상담 흐름</span><h2>상담은<br>6단계로</h2><p>정보를 한 번에 쏟아내지 않고 학생의 답에 따라 다음 화면을 고릅니다.</p></header><div class="flow">
+<section class="section" id="flow"><div class="section-grid"><header class="section-head"><span class="idx">03 · 상담 흐름</span><h2>상담은 <br>6단계로</h2><p>정보를 한 번에 쏟아내지 않고 학생의 답에 따라 다음 화면을 고릅니다.</p></header><div class="flow">
 <div class="flow-step"><b>STEP 1</b><h3>관심 이유 확인</h3><p>“이번 과정은 어떤 계기로 알아보셨어요?”로 시작해 <strong>취업·전향·실무 보완·포트폴리오</strong> 중 목적을 확인합니다.</p></div>
 <div class="flow-step"><b>STEP 2</b><h3>원하는 일 확인</h3><p>디자인 / 코딩 / 서버 / 서비스 전체 / 기획 중 <strong>어떤 일을 해보고 싶은지</strong> 먼저 구분합니다.</p></div>
 <div class="flow-step"><b>STEP 3</b><h3>경험 수준 확인</h3><p>Figma, React, Java, 기획서 작성 등 해본 경험을 듣되 <strong>경험 유무만으로 과정 적합도를 단정하지 않습니다.</strong></p></div>
@@ -68,7 +164,7 @@ main{padding:22px 0 90px}.section{padding:58px 0;position:relative}.section+.sec
 <div class="flow-step"><b>STEP 6</b><h3>우려 확인 후 다음 행동</h3><p>“결정하시기 전에 가장 걸리는 부분이 뭐예요?”를 묻고, 최신 모집 기준에 따라 지원·상담 다음 단계를 안내합니다.</p></div>
 </div></div></section>
 
-<section class="section" id="questions"><div class="section-grid"><header class="section-head"><span class="idx">04 · 질문법</span><h2>좋은 상담은<br>좋은 질문에서</h2><p>정답을 알려주기 전에 학생이 어떤 기준으로 선택해야 하는지 스스로 말하게 만듭니다.</p></header><div class="question-grid">
+<section class="section" id="questions"><div class="section-grid"><header class="section-head"><span class="idx">04 · 질문법</span><h2>좋은 상담은 <br>좋은 질문에서</h2><p>정답을 알려주기 전에 학생이 어떤 기준으로 선택해야 하는지 스스로 말하게 만듭니다.</p></header><div class="question-grid">
 <article class="question"><b>Q1 · GOAL</b><h3>“교육 끝나고 어떤 결과물이 있으면 가장 좋을까요?”</h3><p>학생이 ‘취업’이라고만 답할 때도 실제로 원하는 결과물을 구체화합니다.</p><div class="listen"><strong>듣기:</strong> 화면 디자인 / 실제 웹 / 서버 프로젝트 / 완성 서비스 / 기획서·서비스 출시</div></article>
 <article class="question"><b>Q2 · INTEREST</b><h3>“화면을 설계하는 것과 코드로 구현하는 것 중 어느 쪽이 더 끌리세요?”</h3><p>프로덕트 디자인과 프론트엔드를 빠르게 구분하는 질문입니다.</p><div class="listen"><strong>듣기:</strong> 사용성·Figma → 디자인 / React·구현 → 프론트</div></article>
 <article class="question"><b>Q3 · DEPTH</b><h3>“화면보다 데이터나 서버 로직을 다루는 쪽도 흥미가 있나요?”</h3><p>프론트·풀스택·백엔드 사이를 좁힐 때 유용합니다.</p><div class="listen"><strong>듣기:</strong> 서버 집중 → 백엔드 / 양쪽 모두 → 풀스택</div></article>
@@ -77,7 +173,7 @@ main{padding:22px 0 90px}.section{padding:58px 0;position:relative}.section+.sec
 <article class="question"><b>Q6 · CONCERN</b><h3>“과정을 선택할 때 가장 걱정되는 건 무엇인가요?”</h3><p>비전공, 난이도, 취업, 일정, 비용, 장비 등 실제 의사결정 장애물을 확인합니다.</p><div class="listen"><strong>듣기:</strong> 바로 반박하지 말고 걱정을 한 문장으로 다시 확인</div></article>
 </div></div></section>
 
-<section class="section" id="matching"><div class="section-grid"><header class="section-head"><span class="idx">05 · 과정 매칭</span><h2>학생의 말 →<br>추천 과정</h2><p>상담사가 추천 이유를 한 문장으로 설명할 수 있어야 합니다.</p></header><div><table class="match-table"><thead><tr><th>학생이 자주 하는 말</th><th>우선 추천</th><th>상담사가 연결할 근거</th></tr></thead><tbody>
+<section class="section" id="matching"><div class="section-grid"><header class="section-head"><span class="idx">05 · 과정 매칭</span><h2>학생의 말 → <br>추천 과정</h2><p>상담사가 추천 이유를 한 문장으로 설명할 수 있어야 합니다.</p></header><div><table class="match-table"><thead><tr><th>학생이 자주 하는 말</th><th>우선 추천</th><th>상담사가 연결할 근거</th></tr></thead><tbody>
 <tr><td>“앱 화면이나 UX에 관심이 있어요.”</td><td><strong>프로덕트 디자인</strong></td><td>화면을 코드로 만드는 것보다 사용자 문제를 찾고 Figma로 경험을 설계하는 비중이 큼.</td></tr>
 <tr><td>“React를 배웠고 실제 웹을 만들고 싶어요.”</td><td><strong>프론트엔드</strong></td><td>사용자가 보는 화면을 구현하고 재사용·성능·협업까지 연결하는 결과물이 맞음.</td></tr>
 <tr><td>“Java/Spring이나 서버 쪽으로 취업하고 싶어요.”</td><td><strong>백엔드</strong></td><td>데이터 저장, API, 서버 구성과 운영 역량을 깊게 가져가는 방향이 맞음.</td></tr>
@@ -90,7 +186,7 @@ main{padding:22px 0 90px}.section{padding:58px 0;position:relative}.section+.sec
 <article class="compare-card"><h3>헷갈림 ④ 디자인 vs PM</h3><div class="vs"><div><b>프로덕트 디자인</b>사용자가 어떻게 쓰는지를 화면과 경험으로 설계</div><span>VS</span><div><b>PM·PO</b>무엇을 왜 먼저 만들지 결정하고 팀을 이끔</div></div></article>
 </div></div></div></section>
 
-<section class="section" id="ai-objection"><div class="section-grid"><header class="section-head"><span class="idx">06 · AI 반박 스크립트</span><h2>AI가 있는데<br>왜 배워요?</h2><p>부정하지 말고 인정한 뒤, “AI 결과물을 실무 기준으로 완성하는 역량”으로 연결합니다.</p></header><div><article class="objection-lead"><b>COMMON FRAME · 공통 답변 구조</b><p>“맞아요. AI 덕분에 만드는 속도는 정말 빨라졌습니다. 그래서 이제 중요한 건 단순히 만드는 사람이 아니라, AI가 만든 초안을 기업 기준에 맞게 고르고 고치고 설명할 수 있는 사람입니다.”</p><p>“이 과정은 AI를 안 쓰는 교육이 아니라, AI를 도구로 쓰면서도 결과물의 품질과 책임은 사람이 가져갈 수 있게 만드는 과정입니다.”</p></article><div class="objection-grid">
+<section class="section" id="ai-objection"><div class="section-grid"><header class="section-head"><span class="idx">06 · AI 반박 스크립트</span><h2>AI가 있는데 <br>왜 배워요?</h2><p>부정하지 말고 인정한 뒤, “AI 결과물을 실무 기준으로 완성하는 역량”으로 연결합니다.</p></header><div><article class="objection-lead"><b>COMMON FRAME · 공통 답변 구조</b><p>“맞아요. AI 덕분에 만드는 속도는 정말 빨라졌습니다. 그래서 이제 중요한 건 단순히 만드는 사람이 아니라, AI가 만든 초안을 기업 기준에 맞게 고르고 고치고 설명할 수 있는 사람입니다.”</p><p>“이 과정은 AI를 안 쓰는 교육이 아니라, AI를 도구로 쓰면서도 결과물의 품질과 책임은 사람이 가져갈 수 있게 만드는 과정입니다.”</p></article><div class="objection-grid">
 <article class="objection-card"><strong>PRODUCT DESIGN</strong><h3>프로덕트 디자인</h3><p>AI가 이미지를 만들 수 있어도 브랜드 기준, 사용자 맥락, 화면 흐름까지 맞춘 제품 경험은 따로 설계해야 합니다.</p><div class="say">멘트 · “AI스러운 시안을 기업 표준의 디자인 시스템과 사용 경험으로 바꾸는 과정입니다.”</div></article>
 <article class="objection-card"><strong>FRONTEND</strong><h3>프론트엔드</h3><p>AI가 코드를 써도 모바일, Safari, 성능, 접근성, 유지보수까지 안정적인 화면은 사람이 검토해야 합니다.</p><div class="say">멘트 · “보이는 화면을 실제 사용자 환경에서 문제없이 작동하게 완성하는 힘을 배웁니다.”</div></article>
 <article class="objection-card"><strong>BACKEND</strong><h3>백엔드</h3><p>AI가 서버 코드를 만들어도 보안, 데이터 처리, 장애 대응, 확장성은 기업 서비스에서 사람이 책임져야 하는 영역입니다.</p><div class="say">멘트 · “작동하는 코드가 아니라, 버티고 관리되는 서버를 설계하는 기준을 배웁니다.”</div></article>
@@ -98,15 +194,15 @@ main{padding:22px 0 90px}.section{padding:58px 0;position:relative}.section+.sec
 <article class="objection-card"><strong>PRODUCT MANAGEMENT</strong><h3>프로덕트 매니지먼트</h3><p>AI가 기획서 초안을 써도 무엇을 왜 먼저 만들지, 고객과 팀을 어떻게 설득할지는 사람이 결정합니다.</p><div class="say">멘트 · “AI로 자료 작성 속도는 높이고, 사람만이 할 수 있는 판단과 협업을 훈련합니다.”</div></article>
 </div><div class="note"><strong>응대 주의:</strong> “AI는 한계가 있어요”로 시작하면 방어적으로 들릴 수 있습니다. 먼저 “맞아요, AI 덕분에 빨라졌습니다”라고 인정한 뒤, 기업 기준·책임·협업·완성도로 전환합니다.</div></div></div></section>
 
-<section class="section" id="scripts"><div class="section-grid"><header class="section-head"><span class="idx">07 · 핵심 컨택 스크립트</span><h2>오프닝과 클로징이<br>컨택의 핵심</h2><p>처음 30초에서 연락 목적과 다음 절차를 명확히 하고, 마지막에는 고객의 현재 온도에 맞는 다음 행동 하나만 제시합니다.</p></header><div><article class="script-box opening-main"><span class="tag">OPENING · 그대로 읽어도 되는 기본형</span><h3>연락 목적 → 안내 범위 → 통화 가능 여부</h3><p>“안녕하세요, ○○○님. KT 클라우드 캠프 운영팀 ○○○입니다. <strong>KT CLOUD TECH UP 클라우드 네이티브 과정 문의 주셔서 연락드립니다.</strong> 궁금하신 부분 확인 후, <strong>수강 가능 여부와 Zoom 면접 신청 절차까지 안내</strong>드리겠습니다. 통화 가능하신 시간 있으실까요?”</p></article><div class="script-rule"><strong>오프닝에서 꼭 들어갈 3가지</strong><span>① 누구인지 · ② 왜 연락했는지 · ③ 어디까지 안내할지</span><p>상대가 통화 가능한지 먼저 확인한 뒤 상담으로 넘어갑니다. 첫 문장에서 과정 설명을 길게 시작하지 않습니다.</p></div><div class="closing-title"><span>CLOSING · 3 PATTERNS</span><h3>고객의 온도에 따라 마지막 한 문장만 바꿉니다.</h3></div><div class="scripts closing-grid">
+<section class="section" id="scripts"><div class="section-grid"><header class="section-head"><span class="idx">07 · 핵심 컨택 스크립트</span><h2>오프닝과 클로징이 <br>컨택의 핵심</h2><p>처음 30초에서 연락 목적과 다음 절차를 명확히 하고, 마지막에는 고객의 현재 온도에 맞는 다음 행동 하나만 제시합니다.</p></header><div><article class="script-box opening-main"><span class="tag">OPENING · 그대로 읽어도 되는 기본형</span><h3>연락 목적 → 안내 범위 → 통화 가능 여부</h3><p>“안녕하세요, ○○○님. KT 클라우드 캠프 운영팀 ○○○입니다. <strong>KT CLOUD TECH UP 클라우드 네이티브 과정 문의 주셔서 연락드립니다.</strong> 궁금하신 부분 확인 후, <strong>수강 가능 여부와 Zoom 면접 신청 절차까지 안내</strong>드리겠습니다. 통화 가능하신 시간 있으실까요?”</p></article><div class="script-rule"><strong>오프닝에서 꼭 들어갈 3가지</strong><span>① 누구인지 · ② 왜 연락했는지 · ③ 어디까지 안내할지</span><p>상대가 통화 가능한지 먼저 확인한 뒤 상담으로 넘어갑니다. 첫 문장에서 과정 설명을 길게 시작하지 않습니다.</p></div><div class="closing-title"><span>CLOSING · 3 PATTERNS</span><h3>고객의 온도에 따라 마지막 한 문장만 바꿉니다.</h3></div><div class="scripts closing-grid">
 <article class="mini-script close-card"><b>01 · 바로 신청할 고객</b><p>“신청 페이지: <strong>[URL]</strong> / 마감 <strong>[마감일]</strong>입니다. 신청 완료하시면 카톡 주세요, <strong>면접 준비 도와드릴게요.</strong>”</p><span class="use">USE · 신청 의사가 명확할 때</span></article>
 <article class="mini-script close-card"><b>02 · 자료 보고 결정할 고객</b><p>“자료 보내드릴게요. 보고 결정되시면 카톡 주세요, <strong>다음 단계 같이 봐드립니다.</strong> 마감일까지 <strong>[N]일</strong> 남았어요.”</p><span class="use">USE · 관심은 있지만 검토 시간이 필요할 때</span></article>
 <article class="mini-script close-card"><b>03 · 공고부터 볼 고객</b><p>“모집공고: <strong>[URL]</strong> / 천천히 보시고 궁금한 점 카톡 주세요.”</p><span class="use">USE · 아직 정보 탐색 단계일 때</span></article>
 </div><div class="scripts support-scripts"><article class="mini-script"><b>추천할 때</b><p>“말씀하신 걸 보면 ‘사용자가 쓰는 화면을 직접 코드로 구현하고 싶다’는 쪽이 가장 크셔서 프론트엔드가 1순위로 보여요. 실제 결과물도 React 기반 웹 서비스라 목표와 연결됩니다.”</p></article><article class="mini-script"><b>두 과정이 고민될 때</b><p>“두 과정 모두 가능하지만 선택 기준은 하나예요. 화면 구현을 깊게 하고 싶으면 프론트엔드, 화면과 서버를 같이 연결해 서비스 전체를 만들고 싶으면 풀스택입니다.”</p></article></div></div></div></section>
 
-<section class="section" id="signals"><div class="section-grid"><header class="section-head"><span class="idx">08 · 전환 신호</span><h2>질문의 의미를<br>읽는 법</h2><p>기존 컨택 가이드처럼 질문 자체를 다음 단계로 넘어갈 신호로 읽습니다.</p></header><div class="signal-grid"><article class="signal-card good"><h3>관심이 높아졌다는 신호</h3><ul><li>“비전공인데 따라갈 수 있나요?”</li><li>“프로젝트는 실제로 어떤 걸 만들어요?”</li><li>“프론트랑 풀스택 중 취업에는 뭐가 더 맞아요?”</li><li>“포트폴리오는 어느 정도까지 나오나요?”</li><li>“지원하려면 다음에 뭘 하면 돼요?”</li></ul></article><article class="signal-card warn"><h3>⚠ 바로 확인해야 하는 신호</h3><ul><li>“일하면서 병행 가능한가요?” → 최신 운영시간 확인</li><li>“교육비는 정확히 얼마예요?” → 최신 지원 기준 확인</li><li>“노트북이 없어요.” → 장비 제공·필수 환경 최신 기준 확인</li><li>“취업 보장되나요?” → 보장 표현 금지, 지원 범위로 설명</li><li>“무조건 이 과정이 제일 좋은 거죠?” → 목적에 따른 적합도로 다시 설명</li></ul></article></div></div></section>
+<section class="section" id="signals"><div class="section-grid"><header class="section-head"><span class="idx">08 · 전환 신호</span><h2>질문의 의미를 <br>읽는 법</h2><p>기존 컨택 가이드처럼 질문 자체를 다음 단계로 넘어갈 신호로 읽습니다.</p></header><div class="signal-grid"><article class="signal-card good"><h3>관심이 높아졌다는 신호</h3><ul><li>“비전공인데 따라갈 수 있나요?”</li><li>“프로젝트는 실제로 어떤 걸 만들어요?”</li><li>“프론트랑 풀스택 중 취업에는 뭐가 더 맞아요?”</li><li>“포트폴리오는 어느 정도까지 나오나요?”</li><li>“지원하려면 다음에 뭘 하면 돼요?”</li></ul></article><article class="signal-card warn"><h3>⚠ 바로 확인해야 하는 신호</h3><ul><li>“일하면서 병행 가능한가요?” → 최신 운영시간 확인</li><li>“교육비는 정확히 얼마예요?” → 최신 지원 기준 확인</li><li>“노트북이 없어요.” → 장비 제공·필수 환경 최신 기준 확인</li><li>“취업 보장되나요?” → 보장 표현 금지, 지원 범위로 설명</li><li>“무조건 이 과정이 제일 좋은 거죠?” → 목적에 따른 적합도로 다시 설명</li></ul></article></div></div></section>
 
-<section class="section" id="faq"><div class="section-grid"><header class="section-head"><span class="idx">09 · FAQ 대응</span><h2>외우기보다<br>답변 구조를</h2><p>사실값은 최신 모집자료를 확인하고, 상담사는 답변의 프레임을 익힙니다.</p></header><div class="faq">
+<section class="section" id="faq"><div class="section-grid"><header class="section-head"><span class="idx">09 · FAQ 대응</span><h2>외우기보다 <br>답변 구조를</h2><p>사실값은 최신 모집자료를 확인하고, 상담사는 답변의 프레임을 익힙니다.</p></header><div class="faq">
 <details open><summary>비전공자도 가능한가요?</summary><p>전공 여부만으로 가능·불가를 단정하지 않습니다. 먼저 지금까지 해본 경험과 목표 직무를 확인하고, 상담자료의 추천 대상과 기초→프로젝트 흐름을 근거로 설명합니다. “비전공이라도 무조건 가능”처럼 보장하지 않습니다.<span class="rule">답변 구조 · 경험 확인 → 과정의 시작점 설명 → 프로젝트 결과물 연결</span></p></details>
 <details><summary>어떤 과정이 취업에 제일 좋아요?</summary><p>과정별 우열이 아니라 목표 직무가 다르다고 설명합니다. “어떤 일을 하고 싶은지”를 다시 묻고 프로덕트 디자이너·프론트·백엔드·풀스택·PM 중 목표 직무와 맞는 과정을 추천합니다.<span class="rule">답변 구조 · 우열 질문을 적합도 질문으로 바꾸기</span></p></details>
 <details><summary>AI가 있는데 이 과정을 왜 배워야 하나요?</summary><p>먼저 “맞아요, AI 덕분에 만드는 속도는 빨라졌습니다”라고 인정합니다. 그 다음 기업은 그럴듯한 초안보다 브랜드 기준, 보안, 성능, 사용자 경험, 협업 맥락까지 맞춘 결과물을 원한다고 설명합니다. 과정별로는 위의 AI 반박 스크립트에서 해당 과정 멘트를 골라 연결합니다.<span class="rule">답변 구조 · 인정 → 기업 기준 → 과정별 역할 → 프로젝트 경험</span></p></details>
@@ -114,9 +210,9 @@ main{padding:22px 0 90px}.section{padding:58px 0;position:relative}.section+.sec
 <details><summary>프로젝트가 정말 취업에 도움이 되나요?</summary><p>‘도움이 된다’고만 말하기보다 과정별 결과물을 보여줍니다. 디자인은 Figma 시제품과 디자인 시스템, 프론트는 작동하는 웹, 백엔드는 서버 프로젝트, 풀스택은 화면+서버 서비스, PM은 기획서와 서비스 운영 경험처럼 구체적으로 설명합니다.<span class="rule">답변 구조 · 결과물 예시 → 어떤 역량을 증명하는지 → 포트폴리오 연결</span></p></details>
 </div></div></section>
 
-<section class="section" id="language"><div class="section-grid"><header class="section-head"><span class="idx">10 · 표현 가이드</span><h2>잘 말하는 것보다<br>정확하게 말하기</h2><p>컨택 가이드의 금지어·주의 표현 구조를 교육용으로 확장합니다.</p></header><div class="do-dont"><div class="danger-intro"><b>🚫 상담 중 하면 안 되는 멘트는 ‘주의’가 아니라 금지입니다.</b><span>취업 보장, 전망 단정, 누구나 가능, 확인하지 않은 일정·비용 확답처럼 결과를 보장하거나 사실값을 단정하는 표현은 사용하지 않습니다.</span></div><article class="dd do"><h3>✓ 이렇게 말하기</h3><ul><li>“말씀하신 목표 기준으로는 <strong>이 과정이 더 가깝습니다.</strong>”</li><li>“취업 시 보여줄 수 있는 <strong>프로젝트 결과물을 만드는 과정</strong>입니다.”</li><li>“현재 상담자료 기준으로 확인해서 안내드릴게요.”</li><li>“두 과정의 차이는 <strong>어떤 역할을 더 깊게 경험하느냐</strong>입니다.”</li><li>“지원 전에 가장 걱정되는 부분을 먼저 확인해볼게요.”</li></ul></article><article class="dd dont"><h3>🚫 하면 안 되는 멘트 · 금지 표현</h3><ul><li>“이 과정 들으면 <strong>무조건 취업돼요.</strong>”</li><li>“비전공자도 <strong>누구나 문제없이 따라가요.</strong>”</li><li>“이 과정이 다섯 개 중 <strong>제일 전망 좋아요.</strong>”</li><li>확인하지 않은 일정·비용·지원 조건을 <strong>기억에 의존해 단정</strong></li><li>학생 답을 듣기 전에 “그러면 무조건 ○○ 과정”으로 바로 결정</li></ul></article></div></div></section>
+<section class="section" id="language"><div class="section-grid"><header class="section-head"><span class="idx">10 · 표현 가이드</span><h2>잘 말하는 것보다 <br>정확하게 말하기</h2><p>컨택 가이드의 금지어·주의 표현 구조를 교육용으로 확장합니다.</p></header><div class="do-dont"><div class="danger-intro"><b>🚫 상담 중 하면 안 되는 멘트는 ‘주의’가 아니라 금지입니다.</b><span>취업 보장, 전망 단정, 누구나 가능, 확인하지 않은 일정·비용 확답처럼 결과를 보장하거나 사실값을 단정하는 표현은 사용하지 않습니다.</span></div><article class="dd do"><h3>✓ 이렇게 말하기</h3><ul><li>“말씀하신 목표 기준으로는 <strong>이 과정이 더 가깝습니다.</strong>”</li><li>“취업 시 보여줄 수 있는 <strong>프로젝트 결과물을 만드는 과정</strong>입니다.”</li><li>“현재 상담자료 기준으로 확인해서 안내드릴게요.”</li><li>“두 과정의 차이는 <strong>어떤 역할을 더 깊게 경험하느냐</strong>입니다.”</li><li>“지원 전에 가장 걱정되는 부분을 먼저 확인해볼게요.”</li></ul></article><article class="dd dont"><h3>🚫 하면 안 되는 멘트 · 금지 표현</h3><ul><li>“이 과정 들으면 <strong>무조건 취업돼요.</strong>”</li><li>“비전공자도 <strong>누구나 문제없이 따라가요.</strong>”</li><li>“이 과정이 다섯 개 중 <strong>제일 전망 좋아요.</strong>”</li><li>확인하지 않은 일정·비용·지원 조건을 <strong>기억에 의존해 단정</strong></li><li>학생 답을 듣기 전에 “그러면 무조건 ○○ 과정”으로 바로 결정</li></ul></article></div></div></section>
 
-<section class="section" id="roleplay"><div class="section-grid"><header class="section-head"><span class="idx">11 · 롤플레이</span><h2>교육은 실제<br>상담처럼</h2><p>과정 설명 시험보다 상황별 추천 근거를 말하게 하는 것이 효과적입니다.</p></header><div class="roleplay-grid">
+<section class="section" id="roleplay"><div class="section-grid"><header class="section-head"><span class="idx">11 · 롤플레이</span><h2>교육은 실제 <br>상담처럼</h2><p>과정 설명 시험보다 상황별 추천 근거를 말하게 하는 것이 효과적입니다.</p></header><div class="roleplay-grid">
 <article class="roleplay"><span class="lv">CASE 01 · BASIC</span><h3>Figma 경험자</h3><p>“디자인 전공은 아닌데 Figma로 앱 화면을 만들어본 적이 있고 UX에 관심이 있습니다.”</p><ol><li>추가 질문 2개 하기</li><li>추천 과정 선택</li><li>추천 근거 30초 설명</li></ol></article>
 <article class="roleplay"><span class="lv">CASE 02 · COMPARE</span><h3>React 입문자</h3><p>“React 강의를 들었는데 프론트엔드랑 풀스택 중 뭘 해야 할지 모르겠어요.”</p><ol><li>화면 vs 전체 서비스 질문</li><li>두 과정 차이 설명</li><li>최종 선택 기준 제시</li></ol></article>
 <article class="roleplay"><span class="lv">CASE 03 · CAREER</span><h3>Java 취업 목표</h3><p>“Java는 배웠고 취업용 프로젝트가 없어요. 서버 개발 쪽으로 가고 싶습니다.”</p><ol><li>백엔드 추천 근거</li><li>결과물 중심 설명</li><li>난이도 우려 확인</li></ol></article>
@@ -125,7 +221,7 @@ main{padding:22px 0 90px}.section{padding:58px 0;position:relative}.section+.sec
 <article class="roleplay"><span class="lv">CASE 06 · POLICY</span><h3>운영 조건 질문</h3><p>“직장을 다니면서 할 수 있나요? 비용은 얼마나 드나요?”</p><ol><li>기억으로 답하지 않기</li><li>최신 모집자료 확인</li><li>조건 확인 후 다음 단계</li></ol></article>
 </div></div></section>
 
-<section class="section" id="check"><div class="section-grid"><header class="section-head"><span class="idx">12 · 체크리스트</span><h2>교육 종료 전<br>최종 확인</h2><p>상담사가 과정 이름을 아는 것이 아니라 실제 상담 행동을 할 수 있는지 확인합니다.</p></header><div><div class="checklist"><article class="check"><h3>상담사 역량 체크</h3><label><input type="checkbox">5개 과정의 차이를 각 20초 안에 설명할 수 있다.</label><label><input type="checkbox">학생 목표를 파악하는 질문을 3개 이상 할 수 있다.</label><label><input type="checkbox">프로덕트 디자인과 프론트엔드를 구분해 설명할 수 있다.</label><label><input type="checkbox">프론트엔드·백엔드·풀스택의 차이를 설명할 수 있다.</label><label><input type="checkbox">PM과 디자인 과정의 역할 차이를 설명할 수 있다.</label><label><input type="checkbox">취업 보장·전망 단정 등 위험 표현을 피할 수 있다.</label></article><article class="check"><h3>실전 상담 체크</h3><label><input type="checkbox">과정 설명 전에 학생의 관심 이유를 먼저 물었다.</label><label><input type="checkbox">학생의 말을 한 문장으로 요약해 확인했다.</label><label><input type="checkbox">추천 과정은 1~2개로 좁혀 제시했다.</label><label><input type="checkbox">과목명보다 결과물과 프로젝트를 먼저 보여줬다.</label><label><input type="checkbox">일정·비용·운영 조건은 최신 자료로 확인했다.</label><label><input type="checkbox">마지막에 우려 사항과 다음 행동을 확인했다.</label></article></div><div class="note"><strong>교육 운영 추천:</strong> ① 20분 과정 구분 → ② 20분 질문법 → ③ 20분 상담자료 화면 실습 → ④ 30분 2인 롤플레이 → ⑤ 10분 피드백. 실제 상담자료를 옆에 띄워두고 교육하는 구성이 가장 자연스럽습니다.</div></div></div></section>
+<section class="section" id="check"><div class="section-grid"><header class="section-head"><span class="idx">12 · 체크리스트</span><h2>교육 종료 전 <br>최종 확인</h2><p>상담사가 과정 이름을 아는 것이 아니라 실제 상담 행동을 할 수 있는지 확인합니다.</p></header><div><div class="checklist"><article class="check"><h3>상담사 역량 체크</h3><label><input type="checkbox">5개 과정의 차이를 각 20초 안에 설명할 수 있다.</label><label><input type="checkbox">학생 목표를 파악하는 질문을 3개 이상 할 수 있다.</label><label><input type="checkbox">프로덕트 디자인과 프론트엔드를 구분해 설명할 수 있다.</label><label><input type="checkbox">프론트엔드·백엔드·풀스택의 차이를 설명할 수 있다.</label><label><input type="checkbox">PM과 디자인 과정의 역할 차이를 설명할 수 있다.</label><label><input type="checkbox">취업 보장·전망 단정 등 위험 표현을 피할 수 있다.</label></article><article class="check"><h3>실전 상담 체크</h3><label><input type="checkbox">과정 설명 전에 학생의 관심 이유를 먼저 물었다.</label><label><input type="checkbox">학생의 말을 한 문장으로 요약해 확인했다.</label><label><input type="checkbox">추천 과정은 1~2개로 좁혀 제시했다.</label><label><input type="checkbox">과목명보다 결과물과 프로젝트를 먼저 보여줬다.</label><label><input type="checkbox">일정·비용·운영 조건은 최신 자료로 확인했다.</label><label><input type="checkbox">마지막에 우려 사항과 다음 행동을 확인했다.</label></article></div><div class="note"><strong>교육 운영 추천:</strong> ① 20분 과정 구분 → ② 20분 질문법 → ③ 20분 상담자료 화면 실습 → ④ 30분 2인 롤플레이 → ⑤ 10분 피드백. 실제 상담자료를 옆에 띄워두고 교육하는 구성이 가장 자연스럽습니다.</div></div></div></section>
 </main>
 <footer class="footer"><div class="shell">KT cloud TECH UP · 컨택교육용 내부 가이드 · 운영 조건은 최신 공식 모집자료 우선</div></footer>
 </body>
