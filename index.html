@@ -465,6 +465,13 @@
     introSkip.addEventListener('click',event=>{event.stopPropagation();clearTimeout(introTimer);closeIntro();});
 
     const esc = value => String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+    const objectParticle = value => {
+      const last = [...String(value)].pop();
+      if(!last) return '을';
+      const code = last.charCodeAt(0);
+      if(code < 0xac00 || code > 0xd7a3) return '을';
+      return (code - 0xac00) % 28 === 0 ? '를' : '을';
+    };
     const list = (items, render) => items.map(render).join('');
 
     function createTabs(){
@@ -493,7 +500,7 @@
         '<section class="hero"><div class="shell hero-grid"><div><div class="collab"><b>KT CLOUD</b></div><h1>'+esc(course.headline)+'</h1><p class="hero-copy">'+esc(course.courseCopy)+'</p><p class="hero-question">'+esc(course.ask)+'</p></div><aside class="recruit-card"><div class="label">NOW RECRUITING</div><h2>'+esc(course.label)+' <br>현재 모집 안내</h2><ul class="recruit-list"><li><span>지원 마감</span><b>2026. 10. 10.</b></li><li><span>교육 일정</span><b>2026. 10. 20. - 2027. 4. 20.</b></li><li><span>교육 방식</span><b>온라인 실시간</b></li><li><span>모집 인원</span><b>50명</b></li><li><span>국비 지원</span><b>최대 18,566,400원</b></li></ul><div class="recruit-actions"><a class="training-sheet-btn" href="#" data-training-label="'+esc(course.label)+'">훈련탐색표 확인하기</a></div></aside></div></section>'+
         '<section class="opportunity"><div class="shell opportunity-inner"><div class="opportunity-kicker">WHY THIS CHANCE</div><p>강의를 듣는 시간이 아니라, <strong>취업할 때 꺼내 보여줄 경험</strong>을 만드는 약 7개월입니다.</p></div></section>'+
         '<div class="shell content">'+
-          '<section class="section ai-reason-section"><div class="section-grid"><header class="section-heading"><span class="section-index">01 · AI 시대의 이유</span><h2>AI 시대에도 <br>왜 배울까요?</h2><p>AI가 만든 초안을 기업 기준의 결과물로 바꾸는 힘을 설명합니다.</p></header><div class="ai-reason"><b>'+esc(course.aiHeadline||'AI는 빠르게 만들고, 사람은 기준으로 완성합니다.')+'</b><p>'+esc(course.aiWhy[0])+'</p><p>'+esc(course.aiWhy[1])+'</p></div></div></section>'+
+          '<section class="section ai-reason-section"><div class="section-grid"><header class="section-heading"><span class="section-index">01 · AI 시대의 이유</span><h2>AI 시대인데 <br>'+esc(course.label)+objectParticle(course.label)+' 왜 배워야 할까요?</h2><p>AI가 만든 초안을 기업 기준의 결과물로 바꾸는 힘을 설명합니다.</p></header><div class="ai-reason"><b>'+esc(course.aiHeadline||'AI는 빠르게 만들고, 사람은 기준으로 완성합니다.')+'</b><p>'+esc(course.aiWhy[0])+'</p><p>'+esc(course.aiWhy[1])+'</p></div></div></section>'+
           '<section class="section"><div class="section-grid"><header class="section-heading"><span class="section-index">02 · 추천 대상</span><h2>누구에게 <br>잘 맞나요?</h2><p>아래 질문 중 두 가지 이상 해당하면 적극적으로 추천하세요.</p></header><div><div class="editorial-quote"><p>'+esc(course.sub)+'</p></div><ul class="fit-list">'+list(course.fit,(item,i)=>'<li><span>0'+(i+1)+'</span><div>'+esc(item)+'</div></li>')+'</ul><div class="why-strip">'+list(course.why,(item,i)=>'<article class="why"><b>WHY 0'+(i+1)+'</b><p>'+esc(item)+'</p></article>')+'</div></div></div></section>'+
           '<section class="section" id="tools"><div class="section-grid"><header class="section-heading"><span class="section-index">03 · 도구와 결과물</span><h2>무엇으로 <br>무엇을 만드나요?</h2><p>상담에서 가장 먼저 보여줄 핵심 화면입니다.</p></header><div class="tool-output"><article class="panel dark"><div class="panel-title"><h3>사용하는 주요 도구</h3><span>TOOLS</span></div><ul class="tool-list">'+list(course.tools,tool=>'<li><b>'+esc(tool[0])+'</b><p>'+esc(tool[1])+'</p></li>')+'</ul></article><article class="panel"><div class="panel-title"><h3>교육 후 남는 결과물</h3><span>OUTPUT</span></div><ol class="output-list">'+list(course.deliverables,(item,i)=>'<li><span>0'+(i+1)+'</span><p>'+esc(item)+'</p></li>')+'</ol></article></div></div></section>'+
           '<section class="section"><div class="section-grid"><header class="section-heading"><span class="section-index">04 · 커리큘럼 순서</span><h2>무엇부터 <br>배우나요?</h2><p>기초부터 최종 팀 프로젝트까지 아래 순서대로 진행됩니다.</p></header><div class="journey">'+list(course.curriculum,(step,i)=>'<article class="journey-step"><b>STEP 0'+(i+1)+'</b><h3>'+esc(step[0])+'</h3><p>'+esc(step[1])+'</p></article>')+'</div></div></section>'+
