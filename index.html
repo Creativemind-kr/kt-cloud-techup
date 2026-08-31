@@ -447,6 +447,15 @@
       items: ['스타일 가이드','유틸리티 바','앱 바','카드','캘린더','선택 칩','대화창','텍스트 필드','메뉴'],
       explanation: '색상·글꼴 같은 디자인 규칙을 정하고, 앱에서 반복해서 사용하는 내비게이션·카드·입력창·선택 요소의 기본·활성·오류 상태를 하나의 시스템으로 설계하는 UI 컴포넌트 실습입니다. 단순히 화면을 꾸미는 것이 아니라 사용성과 일관성을 기준으로 재사용 가능한 화면 규칙을 만드는 작업입니다.'
     };
+    DATA.courses[1].componentShowcase = {
+      kicker: 'FULLSTACK SERVICE PROJECT',
+      title: '서비스 배포 + 웹 비주얼 디자인',
+      description: '기획한 서비스를 실제 웹 화면으로 구현하고 서버·데이터와 연결해 누구나 접속할 수 있는 웹 주소로 배포합니다.',
+      image: 'assets/images/fullstack-service-deployment-visual-design.png',
+      alt: '이사 소비자와 전문가를 연결하는 매칭 서비스의 웹 비주얼 디자인 결과물',
+      items: ['서비스 배포','웹 비주얼 디자인','로그인·회원가입','서비스 기능 연결','반응형 화면'],
+      explanation: '로그인·회원가입·검색 같은 화면 기능을 만들고 백엔드와 데이터베이스를 연결한 뒤, 실제 웹 주소로 공개하는 풀스택 프로젝트입니다. 기능 구현에 그치지 않고 서비스 콘셉트에 맞는 레이아웃·색상·반응형 화면까지 함께 설계합니다.'
+    };
     const app = document.getElementById('app');
     const tabs = document.getElementById('courseTabs');
     const officialLink = document.getElementById('officialLink');
@@ -524,6 +533,8 @@
       '</article>';
       const componentShowcase = app.querySelector('.component-showcase');
       if(componentShowcase && course.componentShowcase?.explanation){
+        const showcaseKicker = componentShowcase.querySelector('.component-showcase-head b');
+        if(showcaseKicker && course.componentShowcase.kicker) showcaseKicker.textContent = course.componentShowcase.kicker;
         componentShowcase.insertAdjacentHTML('beforeend','<div class="component-showcase-explain"><b>어떤 작업인가요?</b><p>'+esc(course.componentShowcase.explanation)+'</p></div>');
       }
     }
