@@ -244,9 +244,10 @@
     /* Header utility link */
     .topbar-inner:after{display:none!important}
     .topbar-inner{position:relative;gap:10px;padding-right:96px}
+    .internal-notice{margin-right:auto;padding-left:14px;border-left:1px solid #d8dbe0;color:#a53b4b;font-size:11px;font-weight:850;letter-spacing:-.025em;line-height:1.35;white-space:nowrap}
     .operations-link{position:absolute;right:0;top:50%;transform:translateY(-50%);display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 13px;border:1px solid #dfe2e7;border-radius:12px;background:#fff;color:#20242b;text-decoration:none;font-size:10.5px;font-weight:950;letter-spacing:-.02em;white-space:nowrap;box-shadow:0 6px 18px rgba(20,24,31,.06);z-index:6}
     .operations-link:hover{background:#20242b;color:#fff;border-color:#20242b}
-    @media(max-width:1050px){.topbar-inner{padding-right:90px}.operations-link{min-height:38px;padding:0 11px;font-size:10px}}
+    @media(max-width:1050px){.topbar-inner{padding-right:90px}.internal-notice{font-size:9.5px}.operations-link{min-height:38px;padding:0 11px;font-size:10px}}
     @media(max-width:760px){.topbar-inner{padding-right:78px}.operations-link{min-height:37px;padding:0 9px;font-size:9.5px}}
     @media(max-width:390px){.topbar-inner{padding-right:72px}.operations-link{min-height:35px;padding:0 7px;font-size:8.8px}.wordmark{font-size:13px}}
     @media print{.operations-link{display:none!important}.topbar-inner{padding-right:0}}
@@ -263,15 +264,16 @@
 
     /* Mobile polish pass: prevent clipped nav text and stabilize compact cards */
     @media(max-width:760px){
-      :root{--header:60px;--guide-tabs:62px;--tabs:76px}
+      :root{--header:90px;--guide-tabs:62px;--tabs:76px}
       body{overflow-x:hidden}
       .shell{width:min(100% - 24px,var(--max))}
       .topbar{height:var(--header);min-height:var(--header)}
       .topbar-inner{
-        display:flex;
+        display:grid;
+        grid-template-columns:minmax(0,1fr) auto;
+        grid-template-rows:38px 34px;
         align-items:center;
-        justify-content:space-between;
-        gap:8px;
+        gap:2px 8px;
         padding-right:0;
       }
       .wordmark{
@@ -282,6 +284,7 @@
         overflow:hidden;
       }
       .wordmark span{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+      .internal-notice{grid-column:1/-1;margin:0;padding:0;border:0;font-size:10px;line-height:1.35;white-space:normal}
       .operations-link{
         position:static;
         transform:none;
@@ -377,7 +380,7 @@
     }
 
     @media(max-width:390px){
-      :root{--header:60px}
+      :root{--header:90px}
       .wordmark{font-size:14px}
       .guide-switch-layout{grid-template-columns:minmax(0,1fr) 112px}
       .guide-switch-btn{font-size:10px}
@@ -399,7 +402,7 @@
     <button class="intro-skip" id="introSkip" type="button">바로 시작</button>
   </div>
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-  <header class="topbar"><div class="shell topbar-inner"><div class="wordmark"><i></i><span>kt cloud TECH UP</span></div><a class="operations-link" href="https://docs.google.com/spreadsheets/d/1PNcU7_jtJGpYnLcXSJZ7GxhtpBWDr_yhiydZyeJv3Yo/edit?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="운영 구글시트 새 탭에서 열기">운영링크 <span aria-hidden="true">↗</span></a></div></header>
+  <header class="topbar"><div class="shell topbar-inner"><div class="wordmark"><i></i><span>kt cloud TECH UP</span></div><span class="internal-notice">해당자료는 내부용이므로 절대 외부에 공유하지 않도록 합니다.</span><a class="operations-link" href="https://docs.google.com/spreadsheets/d/1PNcU7_jtJGpYnLcXSJZ7GxhtpBWDr_yhiydZyeJv3Yo/edit?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="운영 구글시트 새 탭에서 열기">운영링크 <span aria-hidden="true">↗</span></a></div></header>
 
   <div id="consultingWorkspace">
   <nav class="guide-switch-wrap" aria-label="상담 화면 선택"><div class="shell guide-switch-layout"><div class="guide-switch" role="tablist" aria-label="상담 화면"><button class="guide-switch-btn" id="courseGuideBtn" type="button" role="tab" aria-selected="true">과정 안내</button><button class="guide-switch-btn" id="work24GuideBtn" type="button" role="tab" aria-selected="false">등록절차 안내</button></div><a class="official-course-link" id="officialLink" href="#" target="_blank" rel="noopener" aria-label="선택한 과정의 고용24 공식 과정 페이지 열기">공식 과정 보기 <span aria-hidden="true">↗</span></a></div></nav>
